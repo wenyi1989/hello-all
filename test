@@ -1,0 +1,21 @@
+import java.io.*;
+public class Test1 {
+	public static void main(String args[]) throws Exception {
+		long n = 102345L;
+		long nr;
+		// convert long to byte array
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		DataOutputStream dos = new DataOutputStream(baos);
+		dos.writeLong(n);
+		byte[] buf = baos.toByteArray();
+		System.out.println(baos.toString());
+		System.out.println(dos);
+		System.out.println(buf);
+		
+		// convert back to long 
+		ByteArrayInputStream bais = new ByteArrayInputStream(buf);
+		DataInputStream dis = new DataInputStream(bais);
+		nr = dis.readLong();
+		System.out.println(nr);
+	}	
+}
